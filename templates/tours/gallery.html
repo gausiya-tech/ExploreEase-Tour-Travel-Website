@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}<h1>Gallery</h1>
+{% for item in items %}<div class="card"><h3>{{ item.title }}</h3><img src="{{ item.picture.url }}" alt="{{ item.title }}"></div>
+{% empty %}<p>Gallery images will appear here after the admin adds them.</p>{% endfor %}
+{% endblock %}

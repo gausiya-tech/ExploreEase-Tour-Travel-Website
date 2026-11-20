@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}<div class="card"><h1>About ExploreEase</h1><p>ExploreEase helps travellers discover destinations and tour packages.</p></div>
+<h2>Our Team</h2>{% for person in team %}<div class="card"><h3>{{ person.name }}</h3><p>{{ person.designation }}</p>{% if person.picture %}<img src="{{ person.picture.url }}" alt="{{ person.name }}">{% endif %}</div>
+{% empty %}<p>Team details will appear here after the admin adds them.</p>{% endfor %}
+{% endblock %}

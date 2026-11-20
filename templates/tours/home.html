@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}ExploreEase | Home{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Explore the world with ExploreEase</h1>
+  <p>Discover destinations, explore tour packages and send a booking request.</p>
+  <a class="button" href="/packages/">Explore Packages</a>
+</div>
+<h2>Popular Destinations</h2>
+{% for city in cities %}<div class="card"><h3>{{ city.name }}</h3>{% if city.picture %}<img src="{{ city.picture.url }}" alt="{{ city.name }}">{% endif %}</div>{% empty %}<p>Add cities from the admin panel.</p>{% endfor %}
+<h2>Featured Packages</h2>
+{% for package in packages %}
+<div class="card"><h3>{{ package.title }}</h3><p>{{ package.city }} · ₹{{ package.price }} · {{ package.duration }}</p><a href="{% url 'package_detail' package.pk %}">View details</a></div>
+{% empty %}<p>No packages yet. Add packages from Django Admin.</p>{% endfor %}
+{% endblock %}

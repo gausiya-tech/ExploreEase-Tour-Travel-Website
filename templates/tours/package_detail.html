@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card"><h1>{{ package.title }}</h1><p>Destination: {{ package.city }}</p>
+{% if package.picture %}<img src="{{ package.picture.url }}" alt="{{ package.title }}">{% endif %}
+<p>Price: ₹{{ package.price }}</p><p>Duration: {{ package.duration }}</p><p>{{ package.details }}</p>
+<p>Available date: {{ package.date }}</p><a class="button" href="/booking/">Book this tour</a></div>
+{% endblock %}
